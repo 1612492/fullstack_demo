@@ -1,0 +1,19 @@
+{
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon .",
+    "start": "node .",
+    "db:up": "db-migrate up",
+    "db:down": "db-migrate down"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "db-migrate": "^0.11.13",
+    "db-migrate-mysql": "^2.2.0",
+    "nodemon": "^2.0.20"
+  }
+}

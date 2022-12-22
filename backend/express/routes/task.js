@@ -10,7 +10,7 @@ router.get('/', async function (_, res) {
   const rows = await db.findAll(TABLE_NAME);
   const tasks = rows.map((row) => Task.parse(row));
 
-  res.send({
+  return res.send({
     message: 'get all tasks successfully',
     data: tasks,
   });
@@ -21,7 +21,7 @@ router.post('/', async function (req, res) {
   const result = await db.create(TABLE_NAME, { name: task.name });
   task.id = result.insertId;
 
-  res.send({
+  return res.send({
     message: 'create task successfully',
     data: task,
   });
@@ -34,13 +34,13 @@ router.get('/:id', async function (req, res) {
   const tasks = rows.map((row) => Task.parse(row));
 
   if (tasks.length > 0) {
-    res.send({
+    return res.send({
       message: 'get task successfully',
       data: tasks[0],
     });
   }
 
-  res.send({
+  return res.send({
     message: 'task not found',
   });
 });
@@ -51,12 +51,12 @@ router.put('/:id', async function (req, res) {
   const result = await db.updateById(TABLE_NAME, task.id, { name: task.name });
 
   if (result.affectedRows) {
-    res.send({
+    return res.send({
       message: 'update task successfully',
     });
   }
 
-  res.send({
+  return res.send({
     message: 'task not found',
   });
 });
@@ -67,12 +67,12 @@ router.delete('/:id', async function (req, res) {
   const result = await db.deleteById(TABLE_NAME, task.id);
 
   if (result.affectedRows) {
-    res.send({
+    return res.send({
       message: 'delete task successfully',
     });
   }
 
-  res.send({
+  return res.send({
     message: 'task not found',
   });
 });

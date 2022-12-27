@@ -1,0 +1,178 @@
+:root {
+  --color-background: #f3f4f6;
+  --color-primary: #a78bfa;
+  --color-text: #6b7280;
+  --color-border: #d1d5db;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-mask: #0000001a;
+  --font-family: 'Poppins', sans-serif;
+  --font-size-heading: 24px;
+  --font-size-body: 16px;
+  --font-size-button: 18px;
+  --font-size-input: 14px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-size: var(--font-size-body);
+}
+
+.card {
+  width: 400px;
+  height: 600px;
+  border-radius: 0.5rem;
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.header {
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.logo {
+  font-size: var(--font-size-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.body {
+  height: 475px;
+  overflow: auto;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.actions {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.btn-edit,
+.btn-delete {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  background: none;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+  color: var(--color-black);
+}
+
+.btn-add {
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-button);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.mask {
+  position: absolute;
+  background-color: var(--color-mask);
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  display: flex;
+  row-gap: 0.5rem;
+  width: 360px;
+  height: 180px;
+  position: absolute;
+  bottom: calc(50% - 100px);
+  border-radius: 0.25rem;
+  background-color: var(--color-white);
+  z-index: 10;
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: var(--font-size-input);
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  border-radius: 4px;
+  height: 40px;
+  outline: none;
+  border: 1px solid var(--color-border);
+  padding: 0 1rem;
+  color: var(--color-text);
+  font-size: var(--font-size-body);
+}
+
+.btn-close {
+  align-self: flex-end;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.btn-save {
+  align-self: flex-end;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  margin-top: 1rem;
+  color: var(--color-primary);
+  font-size: var(--font-size-body);
+}
+
+@media screen and (max-width: 460px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .body {
+    flex: 1;
+  }
+
+  .modal {
+    width: calc(100% - 40px);
+  }
+}

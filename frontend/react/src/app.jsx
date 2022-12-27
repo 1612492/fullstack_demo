@@ -44,7 +44,7 @@ function App() {
       <div className="card">
         <div className="header">
           <div className="logo">TODO</div>
-          <div className="count">6 tasks</div>
+          <div className="count">{tasks.length} tasks</div>
         </div>
         <div className="body">
           {tasks.map((task) => (
